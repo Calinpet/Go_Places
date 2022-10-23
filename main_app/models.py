@@ -28,4 +28,11 @@ class Visit(models.Model):
     max_length=1,
     choices=VISITED,
     default=VISITED[0][0]
-  ) 
+  )
+
+  place = models.ForeignKey(Place, on_delete=models.CASCADE)
+  def __str__(self):
+    return f"{self.get_visited_display()} on {self.date}"  
+
+  class Meta:
+    ordering = ['-date'] 
