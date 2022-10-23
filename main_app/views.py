@@ -32,12 +32,15 @@ def add_visit(request, place_id):
     new_visit = form.save(commit=False)
     new_visit.place_id = place_id
     new_visit.save()
-  return redirect('places_detail', place_id=place_id)  
+  return redirect('detail', place_id=place_id)  
 
 class PlaceCreate(CreateView):
   model = Place
   fields = ['name', 'description'] 
   success_url = '/places/'
+  def form_valid(self, form):
+    form.instance.user = self.request.user 
+    return super().form_valid(form)
 
 class PlaceUpdate(UpdateView):
   model = Place

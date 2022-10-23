@@ -26,7 +26,7 @@
     >
       {% csrf_token %}
       {{ visiting_form.as_p }}
-      <button type="submit" class="btn">Add</button>
+      <button type="submit" class="btn btn-primary" >Add</button>
     </form>
     <h3>Past Visits</h3>
     {% if place.visit_set.all.count %}
@@ -45,11 +45,18 @@
     </table>
     {% else %}
 			<div class="subsection-content">
-        <p>Buy a plane ticket to {{place.name}}!!!</p>
+        <p>Let's Goooo! Buy a plane ticket to {{place.name}}!!!</p>
       </div>
     {% endif %}
   </section>
 </div>
+
+<script type="text/javascript">
+  $(function() {
+      $('#datepicker').datepicker();
+  });
+</script>
+
 
 {% endblock %}
 
