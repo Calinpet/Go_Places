@@ -5,6 +5,12 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+VISITED = (
+  ('1', 'Visited'),
+  ('2', 'Not Visited'),
+  ('3', 'Planing To Visit')
+)
+
 class Place(models.Model):
   name = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
@@ -16,4 +22,10 @@ class Place(models.Model):
   def get_absolute_url(self):
     return reverse('detail', kwargs={'place_id': self.id})
 
- 
+class Visit(models.Model):
+  date = models.DateField()
+  visited = models.CharField(
+    max_length=1,
+    choices=VISITED,
+    default=VISITED[0][0]
+  ) 
