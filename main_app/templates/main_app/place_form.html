@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="page-header">
+  {% if object %}
+  <h1>Edit {{place.name}}</h1>
+  {% else %}
+  <h1>Add a Place</h1>
+  {% endif %}
+</div>
+{% comment %} 
+
+{% endcomment %}
+<form action="" method="post" class="form-container">
+  {% comment %} 
+
+  {% endcomment %}
+  {% csrf_token %}
+  <table>
+    {% comment %}
+
+    {% endcomment %}
+    {{ form.as_table }}
+  </table>
+  <button type="submit" class="btn submit">Submit!</button>
+</form>
+
+{% endblock %}

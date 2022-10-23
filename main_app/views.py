@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Place
+from django.views.generic.edit import CreateView
 from django.http import HttpResponse
+
+
  # Create your views here.
 
 
@@ -16,4 +19,8 @@ def places_index(request):
 
 def places_detail(request, place_id):
   place = Place.objects.get(id=place_id)
-  return render(request, 'places/detail.html', {'place': place})   
+  return render(request, 'places/detail.html', {'place': place})
+
+class PlaceCreate(CreateView):
+  model = Place
+  fields = ['name', 'description']        
