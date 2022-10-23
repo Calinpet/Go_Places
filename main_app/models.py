@@ -23,7 +23,7 @@ class Place(models.Model):
     return reverse('detail', kwargs={'place_id': self.id})
 
 class Visit(models.Model):
-  date = models.DateField()
+  date = models.DateField('visiting date')
   visited = models.CharField(
     max_length=1,
     choices=VISITED,

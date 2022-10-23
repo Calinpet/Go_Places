@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Place
 from django.views.generic.edit import CreateView
 # Add UdpateView & DeleteView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .forms import VisitForm
 from django.http import HttpResponse
 
 
@@ -21,7 +22,17 @@ def places_index(request):
 
 def places_detail(request, place_id):
   place = Place.objects.get(id=place_id)
-  return render(request, 'places/detail.html', {'place': place})
+  visiting_form = VisitForm()
+  return render(request, 'places/detail.html', {'place': place, 'visiting_form': visiting_form
+  })
+
+def add_visit(request, place_id):
+  form = VisitForm(request.POST)
+  if form.is_valid():
+    new_visit = form.save(commit=False)
+    new_visit.place_id = place_id
+    new_visit.save()
+  return redirect('places_detail', place_id=place_id)  
 
 class PlaceCreate(CreateView):
   model = Place

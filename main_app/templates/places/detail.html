@@ -12,6 +12,44 @@
     <a href="{% url 'places_delete' place.id %}" class="btn danger">Delete</a>
   </div>
 </div>
+<div class="visits-container">
+  <section class="visits">
+    <div class="subsection-title">
+      <h2>Visits</h2>
+      <!-- probably image -->
+    </div>
+    <h3>Add a Visit</h3>
+    <form
+      action="{% url 'add_visit' place.id %}" 
+      method="post" 
+      class="subsection-content"
+    >
+      {% csrf_token %}
+      {{ visiting_form.as_p }}
+      <button type="submit" class="btn">Add</button>
+    </form>
+    <h3>Past Visits</h3>
+    {% if place.visit_set.all.count %}
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Visit</th></tr>
+      </thead>
+      <tbody>
+        {% for visit in place.visit_set.all %}
+          <tr>
+            <td>{{visit.date}}</td>
+            <td>{{visit.get_visited_display}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+			<div class="subsection-content">
+        <p>Buy a plane ticket to {{place.name}}!!!</p>
+      </div>
+    {% endif %}
+  </section>
+</div>
 
 {% endblock %}
 
