@@ -3,9 +3,13 @@
 <h1>Place Details</h1>
 
 <div class="card">
-  <div class="card-content">
+  <div class="card-body">
     <span class="card-title"> {{ place.name }}</span>
     <p>Description: {{ place.description }}</p>
+  </div>
+  <div class="button-actions">
+    <a href="{% url 'places_update' place.id %}" class="btn warn">Edit</a>
+    <a href="{% url 'places_delete' place.id %}" class="btn danger">Delete</a>
   </div>
 </div>
 

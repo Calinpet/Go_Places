@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Place
 from django.views.generic.edit import CreateView
+# Add UdpateView & DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 
 
@@ -23,4 +25,15 @@ def places_detail(request, place_id):
 
 class PlaceCreate(CreateView):
   model = Place
-  fields = ['name', 'description']        
+  fields = ['name', 'description'] 
+  success_url = '/places/'
+
+class PlaceUpdate(UpdateView):
+  model = Place
+  fields = ['name', 'description'] 
+
+class PlaceDelete(DeleteView):
+  model = Place 
+  success_url = '/places/' 
+
+
