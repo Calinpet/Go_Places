@@ -2,17 +2,18 @@
 
 <h1>Places List</h1>
 
-<section class="card-container">
+{% for place in places %}
+<!-- <section class="card-container"> -->
   <div class="card">
-    {% for place in places %}
+    <a href="{% url 'detail' place.id %}">
       <div class="card-content">
-      <div class="card-img-container">
+        <div class="card-img-container">
+        <span class="card-title">{{ place.name }}</span>
+        <p>Description: {{ place.description }}</p>
       </div>
-      <h2 class="card-title">{{ place.name }}</h2>
-      <p>Description: {{ place.description }}</p>
     </a>
     </div>
   {% endfor %}
-</section>
+<!-- </section> -->
  
 {% endblock %}
