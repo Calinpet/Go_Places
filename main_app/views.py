@@ -1,10 +1,15 @@
 from django.shortcuts import render
-
-# Create your views here.
+from .models import Place
 from django.http import HttpResponse
+ # Create your views here.
+
 
 def home(request):
-  return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
+    return render(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')
+
+def places_index(request):
+  places = Place.objects.all()
+  return render(request, 'places/index.html', { 'places': places })  

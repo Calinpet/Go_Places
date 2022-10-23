@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Places List</h1>
+
+<section class="card-container">
+  <div class="card">
+    {% for place in places %}
+      <div class="card-content">
+      <div class="card-img-container">
+      </div>
+      <h2 class="card-title">{{ place.name }}</h2>
+      <p>Description: {{ place.description }}</p>
+    </a>
+    </div>
+  {% endfor %}
+</section>
+ 
+{% endblock %}
