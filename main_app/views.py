@@ -13,7 +13,6 @@ import uuid
 import boto3
 
 
-
  # Create your views here.
 S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
 BUCKET = 'go-places-calin'

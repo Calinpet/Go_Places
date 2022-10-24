@@ -12,4 +12,5 @@ urlpatterns = [
   path('places/<int:place_id>/add_visit/', views.add_visit, name='add_visit'),
   path('places/<int:place_id>/add_todo/', views.add_todo, name='add_todo'),
   path('places/<int:place_id>/add_photo/', views.add_photo, name='add_photo'),
+  path('accounts/signup/', views.signup, name='signup'),
 ]

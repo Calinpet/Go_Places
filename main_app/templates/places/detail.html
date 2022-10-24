@@ -1,73 +1,77 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1>Place Details</h1>
-
-<div class="card">
-  <div class="card-body">
-    <span class="card-title"> {{ place.name }}</span>
-    <p>Description: {{ place.description }}</p>
-  </div>
-  <div class="button-actions">
-    <a href="{% url 'places_update' place.id %}" class="btn warn">Edit</a>
-    <a href="{% url 'places_delete' place.id %}" class="btn danger">Delete</a>
-  </div>
-</div>
-{% for photo in place.photo_set.all %}
-    <img class="responsive-img card-panel" src="{{ photo.url }}" />
-    {% empty %}
-    <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-    {% endfor %}
-
-    <form
-      action="{% url 'add_photo' place.id %}"
-      enctype="multipart/form-data"
-      method="POST"
-      class="card-panel"
-    >
-      {% csrf_token %}
-      <input type="file" name="photo-file" />
-      <br /><br />
-      <input type="submit" class="btn btn-primary" value="Upload Photo" />
-    </form>
-<div class="todos-container">
-  <section class="todos">
-    <div class="subsection-title">
-      <h1>Things to do in {{ place.name }}!!</h1>
+<div class="row">
+  <div class="card mb-3">
+    <div class="card-body">
+      <span class="card-title"> {{ place.name }}</span>
+      <p>Description: {{ place.description }}</p>
     </div>
-    <table>
-      <thead>
-        <tr><th>
-          <form
-          action="{% url 'add_todo' place.id %}" 
-          method="post" 
-          class="subsection-content"
-        >
-          {% csrf_token %}
-          {{ todo_form.as_p }}
-          <br>
-          <button type="submit" class="btn btn-primary">Add</button>
-        </form>
+    <div class="button-actions">
+      <a href="{% url 'places_update' place.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'places_delete' place.id %}" class="btn danger">Delete</a>
+    </div>
+  </div>
+  {% for photo in place.photo_set.all %}
+  <img class="responsive-img card-panel" src="{{ photo.url }}" />
+  {% empty %}
+  <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+  {% endfor %}
 
+  <form
+    action="{% url 'add_photo' place.id %}"
+    enctype="multipart/form-data"
+    method="POST"
+    class="card-panel"
+    >
+    {% csrf_token %}
+    <input type="file" name="photo-file" />
+    <br /><br />
+    <input type="submit" class="btn btn-primary" value="Upload Photo" />
+  </form>
+</div>
+<hr>
+<div class="row">
+  <div class="todos-container">
+    <section class="todos">
+      <div class="subsection-title">
+        <h1>Things to do in {{ place.name }}!!</h1>
+      </div>
+      <table>
+        <thead>
+          <tr><th>
+            <form
+            action="{% url 'add_todo' place.id %}" 
+            method="post" 
+            class="subsection-content"
+          >
+            {% csrf_token %}
+            {{ todo_form.as_p }}
+            <br>
+            <button type="submit" class="btn btn-primary">Add</button>
           </form>
-        </th></tr>
-      </thead>
-      <tbody>
-        {% for doing in place.doing_set.all %}
-          <tr>
-            {% if doing.complete %}
-              <td>✔️{{doing.todo}}</td>
-              {% comment %} <td>✔️{{doing.get_todo_display}}</td> {% endcomment %}
-            {% else %}
-              <td>{{doing.todo}}</td>
-              {% comment %} <td>{{doing.get_todo_display}}</td> {% endcomment %}
-            {% endif %}
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </section>   
+
+            </form>
+          </th></tr>
+        </thead>
+        <tbody>
+          {% for doing in place.doing_set.all %}
+            <tr>
+              {% if doing.complete %}
+                <td>✔️{{doing.todo}}</td>
+                {% comment %} <td>✔️{{doing.get_todo_display}}</td> {% endcomment %}
+              {% else %}
+                <td>{{doing.todo}}</td>
+                {% comment %} <td>{{doing.get_todo_display}}</td> {% endcomment %}
+              {% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>   
+  </div>
 </div>
-</div>
+<hr>
 <div class="visits-container">
   <section class="visits">
     <div class="subsection-title">
@@ -106,6 +110,7 @@
     {% endif %}
   </section>
 </div>
+<hr>
 
 <script type="text/javascript">
   $(function() {
