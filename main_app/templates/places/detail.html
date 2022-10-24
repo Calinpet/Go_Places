@@ -8,8 +8,8 @@
       <p>Description: {{ place.description }}</p>
     </div>
     <div class="button-actions">
-      <a href="{% url 'places_update' place.id %}" class="btn warn">Edit</a>
-      <a href="{% url 'places_delete' place.id %}" class="btn danger">Delete</a>
+      <a href="{% url 'places_update' place.id %}" class="btn btn-warning btn-sm">Edit</a>
+      <a href="{% url 'places_delete' place.id %}" class="btn btn-danger btn-sm">Delete</a>
     </div>
   </div>
   {% for photo in place.photo_set.all %}

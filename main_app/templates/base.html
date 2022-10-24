@@ -38,11 +38,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/about"
-                  >About</a
+                <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a
                 >
               </li>
-
+              {% if user.is_authenticated %}
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -90,13 +89,26 @@
                   </li>
                 </ul>
               </li>
+              
+              
               <li class="nav-item">
-                <a class="nav-link">Log in</a>
-              </li>
+                <a class="nav-link active" aria-current="page" href="{% url 'logout' %}"
+                >Log Out</a
+                >
+              </li>  
+              
               <li class="nav-item">
-                <a class="nav-link">Sign Up</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'signup' %}">Sign Up</a>
               </li>
+
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Log in</a>
+              </li>
+              {% endif %}
+              
             </ul>
+
             <form class="d-flex" role="search">
               <input
                 class="form-control me-2"
@@ -112,6 +124,7 @@
         </div>
       </nav>
     </header>
+
     <main class="container">{% block content %} {% endblock %}</main>
 
     <div class="container my-5">
