@@ -13,7 +13,8 @@
     </div>
   </div>
   {% for photo in place.photo_set.all %}
-  <img class="responsive-img card-panel" src="{{ photo.url }}" />
+  <img class="img-fluid card-panel" src="{{ photo.url }}" alt="Responsive image"/>
+  <hr>
   {% empty %}
   <div class="card-panel teal-text center-align">No Photos Uploaded</div>
   {% endfor %}
