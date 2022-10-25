@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(112, 236, 242);
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -12,6 +12,13 @@ body {
 
 main {
   flex-grow: 1;
+}
+
+.carousel img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .footer {

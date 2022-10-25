@@ -1,15 +1,15 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1>Place Details</h1>
-<div class="row">
-  <div class="card mb-3">
-    <div class="card-body">
-      <span class="card-title"> {{ place.name }}</span>
+<!-- <div class="row"> -->
+  <div class="card col-md-7 gx-5 mb-4 card text-bg-info mb-3">
+    <div class="card text-bg-info mb-3">
+      <div class="card-header"> {{ place.name }}</div>
       <p>Description: {{ place.description }}</p>
     </div>
-    <div class="button-actions">
-      <a href="{% url 'places_update' place.id %}" class="btn btn-warning btn-sm">Edit</a>
-      <a href="{% url 'places_delete' place.id %}" class="btn btn-danger btn-sm">Delete</a>
+      <div class="button-actions">
+        <a href="{% url 'places_update' place.id %}" class="btn btn-warning btn-sm">Edit</a>
+        <a href="{% url 'places_delete' place.id %}" class="btn btn-danger btn-sm">Delete</a>
     </div>
   </div>
   {% for photo in place.photo_set.all %}
@@ -30,6 +30,7 @@
     <input type="submit" class="btn btn-primary" value="Upload Photo" />
   </form>
 </div>
+
 <hr>
 <div class="row">
   <div class="todos-container">

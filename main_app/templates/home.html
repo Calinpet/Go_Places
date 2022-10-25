@@ -1,7 +1,24 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1> Go Place Home Page</h1>
+<h1> Go Places Home Page</h1>
 <hr>
-<h2>Welcome to Go Places! An application for enthusiastic travellers! </h2>
+<h2>Welcome to Go Places! An application for enthusiastic 
+  travellers!</h2>
+<hr>
+
+<div id="carousel" class="carousel slide"data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../static/images/california.jpeg" class="d-block w-100" alt="California">
+    </div>
+    <div class="carousel-item">
+      <img src="../static/images/oradea.JPG" class="d-block w-100" alt="My Hometown">
+    </div>
+    <div class="carousel-item">
+      <img src="../static/images/go_places.jpeg" class="d-block w-100" alt="Traveling the world">
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}

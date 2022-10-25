@@ -23,17 +23,24 @@ def home(request):
 def about(request):
   return render(request, 'about.html')
 
+@login_required
 def places_index(request):
-  places = Place.objects.all()
+  places = Place.objects.filter(user=request.user)
+  # cats = request.user.cat_set.all()
   return render(request, 'places/index.html', { 'places': places }) 
 
+@login_required
 def places_detail(request, place_id):
   place = Place.objects.get(id=place_id)
   visiting_form = VisitForm()
   todo_form = DoingForm()
-  return render(request, 'places/detail.html', {'place': place, 'visiting_form': visiting_form, 'todo_form': todo_form
+  return render(request, 'places/detail.html', {
+    'place': place, 
+    'visiting_form': visiting_form, 
+    'todo_form': todo_form
   })
 
+@login_required
 def add_visit(request, place_id):
   form = VisitForm(request.POST)
   if form.is_valid():
@@ -42,6 +49,7 @@ def add_visit(request, place_id):
     new_visit.save()
   return redirect('detail', place_id=place_id)
 
+@login_required
 def add_todo(request, place_id):
   form = DoingForm(request.POST)
   if form.is_valid():
@@ -50,6 +58,7 @@ def add_todo(request, place_id):
     new_todo.save()
   return redirect('detail', place_id=place_id)
 
+@login_required
 def add_photo(request, place_id):
     # photo-file will be the "name" attribute on the <input 
     # attemp to collect the photo file data
@@ -70,14 +79,14 @@ def add_photo(request, place_id):
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
             # we can assign to cat_id or cat (if you have a cat object)
             # 1) create photo instance with photo model and provide cat_id as foreign key val
-            photo = Photo(url=url, palce_id=place_id)
+            photo = Photo(url=url, place_id=place_id)
              # 2) save the photo instance to the database
             photo.save()
         except:
             print('An error occurred uploading file to S3')
     return redirect('detail', place_id=place_id)         
 
-class PlaceCreate(CreateView):
+class PlaceCreate(LoginRequiredMixin, CreateView):
   model = Place
   fields = ['name', 'description'] 
   success_url = '/places/'
@@ -85,11 +94,11 @@ class PlaceCreate(CreateView):
     form.instance.user = self.request.user 
     return super().form_valid(form)
 
-class PlaceUpdate(UpdateView):
+class PlaceUpdate(LoginRequiredMixin, UpdateView):
   model = Place
   fields = ['name', 'description'] 
 
-class PlaceDelete(DeleteView):
+class PlaceDelete(LoginRequiredMixin, DeleteView):
   model = Place 
   success_url = '/places/' 
 
@@ -100,11 +109,11 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('places_index')
+      return redirect('index')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
-  return render(request, 'signup.html', context)  
+  return render(request, 'registration/signup.html', context)  
 
 
