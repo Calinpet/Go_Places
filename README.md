@@ -21,9 +21,13 @@
 ### Website Preview
 
 ![Home Page](addscreenshot)
+
 ![About]()
+
 ![All my places]()
+
 ![Place Details]()
+
 ![Signup]()
 
 ## Technologies Used
