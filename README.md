@@ -27,11 +27,12 @@
 ![Home Page](main_app/static/images/home.png)
 #### About
 ![About](main_app/static/images/About.png)
-
+#### All my places
 ![All my places](main_app/static/images/all-my-places.png)
-
+#### SignUp
 ![Signup](main_app/static/images/SignUp.png)
 
+#### Mobile responsive 
 ![Place Details Mobile](main_app/static/images/place-details-mobile.png)
 
 ![Mobile Responsive](main_app/static/images/mobile-responsive.png)
