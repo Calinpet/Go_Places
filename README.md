@@ -10,11 +10,12 @@
 ## Planning
 
 [Click here to get a closer look at our Trello Planning Materials](https://trello.com/invite/b/aKi632zq/ATTIde4e8def672f6aaa9ac8e22e3fd5d4de99E68767/project-4)
-![Wireframe](add screenshot)
+![Screenshot](main_app/static/images/trello-planing.png)
 
 ### ERD & Wireframe 
+
 #### [Click here to get a closer look at the Wireframe](https://whimsical.com/project-4-VpYrmGXDniCuYAHT12uvRD)
-![Wireframe](add Screenshot)
+![Wireframe](../go_places/main_app/static/images/wireframe.png)
 
 
 
