@@ -15,7 +15,7 @@
 ### Wireframe 
 
 #### [Click here to get a closer look at the Wireframe](https://whimsical.com/project-4-VpYrmGXDniCuYAHT12uvRD)
-![Screenshot](main_app/static/images/ERD-go-places.png)
+![Screenshot](main_app/static/images/wireframe.png)
 
 ### ERD
 
