@@ -12,27 +12,27 @@
 [Click here to get a closer look at our Trello Planning Materials](https://trello.com/invite/b/aKi632zq/ATTIde4e8def672f6aaa9ac8e22e3fd5d4de99E68767/project-4)
 ![Screenshot](main_app/static/images/trello-planing.png)
 
-### ERD & Wireframe 
+### Wireframe 
 
 #### [Click here to get a closer look at the Wireframe](https://whimsical.com/project-4-VpYrmGXDniCuYAHT12uvRD)
-![Wireframe](../go_places/main_app/static/images/wireframe.png)
+![Screenshot](main_app/static/images/ERD-go-places.png)
 
-
+### ERD
 
 #### [Click here to get a closer look at the ERD](https://whimsical.com/erd-start-M5uG3wCgLEkKZEHCeJMRB3)
-![ERD](add Screenshot)
+![ERD](main_app/static/images/ERD-go-places.png)
 
 ### Website Preview
 
-![Home Page](../go_places/main_app/static/images/home.png)
+![Home Page](main_app/static/images/home.png)
 
-![About](../go_places/main_app/static/images/About.png)
+![About](main_app/static/images/About.png)
 
-![All my places](../go_places/main_app/static/images/place-details-mobile.png)
+![All my places](main_app/static/images/all-my-places.png)
 
-![Place Details](../go_places/main_app/static/images/place-details2-mobile.png)
+![Place Details Mobile](main_app/static/images/place-details-mobile.png)
 
-![Signup](../go_places/main_app/static/images/SignUp.png)
+![Signup](main_app/static/images/SignUp.png)
 
 ## Technologies Used
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
@@ -49,7 +49,8 @@
 - AAU i want to be able to update videos of places.
 - AAU i want to be able to rate places I've been.
 - AAU i want to be able to use the search bar.
-_ AAU i want to be able to add and delete activities, also asigned them to each place that i want to visit.
+- AAU i want to be able to add and delete activities
+- AAU i want to asign each activity to each place that i want to visit.
 
 
 
