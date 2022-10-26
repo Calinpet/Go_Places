@@ -2,7 +2,10 @@
 [Click here to get to the Deployed Link](https://go-places-app-calin.herokuapp.com/)
 
 ## About
-- 
+- An application for enthusiastic travelers, where the user can add places they want to visit. 
+- The user can plan visits and activity and also mark then as completed.
+- Full CRUD app where the user can add a place to visit, add photos, also can edit and delete a place.
+- The user can sign in, log out and sign up. 
 
 ## Planning
 
@@ -20,15 +23,15 @@
 
 ### Website Preview
 
-![Home Page](addscreenshot)
+![Home Page](../go_places/main_app/static/images/home.png)
 
-![About]()
+![About](../go_places/main_app/static/images/About.png)
 
-![All my places]()
+![All my places](../go_places/main_app/static/images/place-details-mobile.png)
 
-![Place Details]()
+![Place Details](../go_places/main_app/static/images/place-details2-mobile.png)
 
-![Signup]()
+![Signup](../go_places/main_app/static/images/SignUp.png)
 
 ## Technologies Used
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
@@ -42,8 +45,10 @@
 
 ## Future Enhancements
 
-- AAU i want to be able to update videos of places
-- AAU i want to be able to rate places I've been
+- AAU i want to be able to update videos of places.
+- AAU i want to be able to rate places I've been.
+- AAU i want to be able to use the search bar.
+_ AAU i want to be able to add and delete activities, also asigned them to each place that i want to visit.
 
 
 
